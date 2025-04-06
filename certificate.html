@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Certificates</title>
+  <link rel="icon" href="r2.jpg" type="image/png">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-image: url('certibg.jpg'); /* Your background image */
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: #fff;
+      min-height: 100vh;
+      padding: 50px 20px;
+      text-align: center;
+      
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* Optional overlay for contrast */
+      z-index: -1;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 40px;
+    }
+
+    .certificates {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .certificate {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      background-color: rgba(255, 255, 255, 0);
+      border-radius: 12px;
+      padding: 20px;
+      gap: 20px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease;
+    }
+
+    .certificate:hover {
+      transform: scale(1.02);
+    }
+    /* Next Arrow Button */
+#next-button {
+    position: fixed;
+    bottom: 80px;
+    right: 30px;
+    font-size: 2.5rem;
+    color: white;
+    background-color: #00b1d8;
+    border-radius: 50%;
+    padding: 10px 16px;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    z-index: 999;
+}
+/* Navigation Arrow Buttons */
+.nav-button {
+    position: fixed;
+    bottom: 80px;
+    font-size: 2.5rem;
+    color: white;
+    background-color: #00b1d8;
+    border-radius: 50%;
+    padding: 10px 16px;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    z-index: 999;
+}
+
+.nav-button:hover {
+    background-color: #008bb5;
+    transform: scale(1.1);
+}
+
+/* Specific positions */
+#next-button {
+    right: 30px;
+}
+
+#previous-button {
+    left: 30px;
+}
+
+
+#next-button:hover {
+    background-color: #008bb5;
+    transform: scale(1.1);
+}
+
+
+    .certificate img {
+      width: 250px;
+      height: auto;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    /* Tablets (≤ 1024px) */
+@media (max-width: 1024px) {
+  body {
+    padding: 40px 15px;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+  }
+
+  .certificate {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .cert-info {
+    text-align: center;
+    padding-top: 10px;
+  }
+
+  .certificate img {
+    width: 220px;
+  }
+
+  .nav-button,
+  #next-button {
+    font-size: 2rem;
+    padding: 8px 14px;
+    bottom: 70px;
+  }
+}
+
+/* Mobile Devices (≤ 768px) */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .certificates {
+    gap: 30px;
+  }
+
+  .certificate img {
+    width: 200px;
+  }
+
+  .cert-info h2 {
+    font-size: 1.3rem;
+  }
+
+  .cert-info p {
+    font-size: 0.95rem;
+  }
+
+  .nav-button,
+  #next-button {
+    font-size: 1.8rem;
+    padding: 6px 12px;
+  }
+
+  footer {
+    font-size: 13px;
+  }
+}
+
+/* Small Phones (≤ 480px) */
+@media (max-width: 480px) {
+  body {
+    padding: 30px 10px;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  .certificate img {
+    width: 160px;
+  }
+
+  .cert-info h2 {
+    font-size: 1.1rem;
+  }
+
+  .cert-info p {
+    font-size: 0.9rem;
+  }
+
+  .nav-button,
+  #next-button {
+    font-size: 1.5rem;
+    padding: 5px 10px;
+    bottom: 60px;
+  }
+
+  footer {
+    font-size: 12px;
+  }
+}
+
+
+    .cert-info {
+      text-align: left;
+      flex: 1;
+    }
+
+    .cert-info h2 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #ffffff00;
+    }
+
+    .cert-info p {
+      font-size: 1rem;
+      color: #f9f9f900;
+    }
+
+    footer {
+      margin-top: 60px;
+      color: #cccccc00;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>My Certificates</h1>
+
+  <div class="certificates">
+
+    <!-- Certificate 1 -->
+    <div class="certificate">
+      <a href="ablock certi.jpg" download>
+        <img src="block certi.jpg" alt="Certificate 1">
+      </a>
+      <div class="cert-info">
+        <h2>Blockchain Basics</h2>
+        <p>Completed an online course on Blockchain Technology covering fundamentals of decentralization, smart contracts, and cryptocurrencies.</p>
+      </div>
+    </div>
+
+    <!-- Certificate 2 -->
+    <div class="certificate">
+      <a href="cert2.jpg" download>
+        <img src="java cert.jpg" alt="Certificate 2">
+      </a>
+      <div class="cert-info">
+        <h2>Java Programming</h2>
+        <p>Successfully completed a Java Programming course, including OOP concepts, data structures, and real-world projects.</p>
+      </div>
+    </div>
+
+    <!-- Certificate 3 -->
+    <div class="certificate">
+      <a href="cert3.jpg" download>
+        <img src="python cert.jpg" alt="Certificate 3">
+      </a>
+      <div class="cert-info">
+        <h2>Python for Data Science</h2>
+        <p>Learned Python basics, libraries like Pandas, NumPy, and Matplotlib, and applied them in data analysis tasks.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    &copy; 2025 My Portfolio
+  </footer>
+  <!-- Next Arrow Button -->
+<a href="contactt.html" id="next-button" title="Go to Education">
+  &#10132;
+</a>
+<!-- Left Arrow Button (Previous Page) -->
+<a href="project.html" id="previous-button" class="nav-button" title="Go to Another Page" style="transform: rotate(180deg);">
+  &#10132;
+</a>
+
+
+
+</body>
+</html>
